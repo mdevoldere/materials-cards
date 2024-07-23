@@ -5,6 +5,48 @@
 - Un fichier JSON qui référence les images du set.
 - Un répertoire contenant les images référencées.
 
+## Utilisation d'un set
+
+Soit l'arborescence suivante :
+- /index.html
+- /main.js
+    - data/
+        - colors.json
+        - colors/
+            - black.png
+            - blue.png
+            - ...
+
+Avec Javascript, charger le JSON en utilisant l'API fetch.
+
+```js
+/***** main.js *****/
+
+// Chargement du JSON
+const response = await fetch('./data/colors.json');
+// conversion du JSON en objet JS 
+const json = await response.json(); 
+// ajout du chemin vers l'image pour chaque élément
+const data = json.map(x => x.path = './data/colors/' + x.name);
+
+console.log(data);
+/* Sortie : 
+[
+    {
+        id: 1,
+        name: "black.png"
+        path: "./data/colors/black.png"
+    },
+    {
+        id: 2,
+        name: "blue.png"
+        path: "./data/colors/blue.png"
+    }
+    // ...
+]
+*/
+```
+
 ## Création d'un nouveau set : 
 
 Pour créer un nouveau jeu d'images, suivez les étapes suivantes.
