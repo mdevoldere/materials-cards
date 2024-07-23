@@ -7,7 +7,7 @@
 
 ## Utilisation d'un set
 
-Soit l'arborescence suivante :
+Soit l'arborescence suivante : 
 - /index.html
 - /main.js
     - data/
